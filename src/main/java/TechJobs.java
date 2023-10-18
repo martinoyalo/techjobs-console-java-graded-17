@@ -121,9 +121,9 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-//        if (someJobs.isEmpty()) {
-//            System.out.print("No Results");
-//        } else {
+        if (someJobs.isEmpty()) {
+            System.out.print("No Results");
+        } else {
             for (HashMap<String, String> job : someJobs) {
                 String jobInfo = "\n*****\n";
                 for (Map.Entry<String, String> key : job.entrySet()) {
@@ -136,7 +136,7 @@ public class TechJobs {
             }
 
         }
-    //::}
+    }
         //System.out.println("printJobs is not implemented yet");
     //}
 }
