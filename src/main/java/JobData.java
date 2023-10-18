@@ -15,13 +15,15 @@ import java.util.List;
  */
 public class JobData {
 
+
+
     private static final String DATA_FILE = "src/main/resources/job_data.csv";
     private static boolean isDataLoaded = false;
 
     private static ArrayList<HashMap<String, String>> allJobs;
 
     /**
-     * Fetch list of all values from loaded data,
+     * Fetch lis5t of all values from loaded data,
      * without duplicates, for a given column.
      *
      * @param field The column to retrieve values from
@@ -75,7 +77,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -95,6 +97,21 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+            for (String job : row.values()) {
+                if (job.toLowerCase().contains(value.toLowerCase()) && !jobs.contains(row)) {
+                    jobs.add(row);
+                }
+            }
+
+           // String aValue = row.get(value);
+
+           // if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                //jobs.add(row);
+            //}
+        }
         return null;
     }
 
